@@ -10,7 +10,7 @@ as possible.
 ## 🚀 Features
 
 -   Translate **PDF → PDF** with preserved formatting\
--   Supports **Gemini 1.5 Flash / Pro** models\
+-   Supports **Gemini 2.5 Flash / Pro** models\
 -   Local **virtual environment** support\
 -   Multi-language translation\
 -   Output includes **mono** and **dual** translation PDFs
@@ -51,7 +51,7 @@ source venv/bin/activate
 ## 📦 3️⃣ Install Dependencies
 
 ``` bash
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ------------------------------------------------------------------------
@@ -61,7 +61,7 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 
     GEMINI_API_KEY=your_api_key_here
-    GEMINI_MODEL=gemini-1.5-flash
+    GEMINI_MODEL=gemini-2.5-flash
 
 ------------------------------------------------------------------------
 
@@ -70,7 +70,8 @@ Create a `.env` file in the project root:
 ### Basic command:
 
 ``` bash
-python -m pdf2zh input.pdf -s gemini -li en -lo hi -o out
+pdf2zh input.pdf -s gemini -li en -lo hi -o out --thread 16
+#Number of threads is upto hardware specifications
 ```
 
 ### Explanation:
@@ -103,7 +104,3 @@ After running, the tool will generate:
 -   Close unused apps while running
 
 ------------------------------------------------------------------------
-
-## 📝 License
-
-This project is for **personal/local use only**.
